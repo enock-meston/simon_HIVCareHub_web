@@ -2,11 +2,14 @@
 <html lang="en">
 
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+
     <link rel="icon" href="{{ asset('assets/images/logo.png') }}" type="image/ico" />
 
     <title>{{ $titles }}</title>
@@ -51,6 +54,62 @@
         .hidden {
             display: none;
         }
+
+
+        /* ===== */
+        .chat-box {
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            /* Adjust as needed */
+        }
+
+        .chat-history {
+            flex: 1;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        .message.left .message-content {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 60%;
+        }
+
+        .message.right .message-content {
+            background-color: #007bff;
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            max-width: 60%;
+            margin-left: auto;
+        }
+
+        .time {
+            display: block;
+            font-size: 0.75em;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .chat-input {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .chat-input .form-control {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        /* ==== */
     </style>
 </head>
 

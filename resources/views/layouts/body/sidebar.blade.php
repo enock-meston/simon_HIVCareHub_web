@@ -16,9 +16,21 @@
                     </ul>
                 </li>
 
-                <li><a><i class="fa fa-user"></i> Appointment Request <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-book"></i> Appointment Request <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="{{ route('appointment') }}">Request</a></li>
+                    </ul>
+                </li>
+
+                <li><a><i class="fa fa-plus"></i> Result <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{{ route('result') }}">Result</a></li>
+                    </ul>
+                </li>
+
+                <li><a><i class="fa fa-plus"></i> Message <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{{ route('message') }}">Message</a></li>
                     </ul>
                 </li>
 

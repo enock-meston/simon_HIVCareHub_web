@@ -65,7 +65,16 @@
                                                         <td>{{ $appointment->title }}</td>
                                                         <td>{{ $appointment->client->names }}</td>
                                                         <td>{{ $appointment->client->phone }}</td>
-                                                        <td>{{ $appointment->status }}</td>
+                                                        <td>
+                                                            @if ($appointment->status === '1')
+                                                                Approved
+                                                            @endif
+
+                                                            @if ($appointment->status === '0')
+                                                                Pending
+                                                            @endif
+
+                                                        </td>
                                                         {{-- form --}}
                                                         <form action="{{ route('approve') }}" method="post">
                                                             @csrf

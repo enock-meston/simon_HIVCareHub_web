@@ -3,8 +3,10 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ResultModelController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,15 +35,25 @@ Route::controller(UserController::class)->group(function(){
 Route::controller(PatientController::class)->group(function(){
     Route::get('admin/patient','index')->name('patient')->middleware('auth');
     Route::post('admin/storePatient','store')->name('storePatient')->middleware(['auth']);
+});
 
+Route::controller(ResultModelController::class)->group(function(){
+    Route::get('Result/result','index')->name('result')->middleware('auth');
+    Route::get('/chat',  'showChat')->name('chat')->middleware('auth');
+    Route::post('result/storeResults','store')->name('storeResults')->middleware('auth');
+});
+// message
 
+Route::controller(MessageController::class)->group(function(){
+    Route::get('message/message','index')->name('message')->middleware('auth');
+    Route::post('/message','store')->name('storeMessage')->middleware('auth');
 });
 
 // Appointment
 Route:: controller(AppointmentController::class)->group(function(){
     Route::get('request/Appointment','index')->name('appointment')->middleware('auth');
-    Route::post('admin/approve','approve')->name('approve')->middleware('auth');
-    Route::get('admin/delete/{id}','delete')->name('delete')->middleware('auth');
+    Route::post('request/approve','approve')->name('approve')->middleware('auth');
+    Route::get('request/delete/{id}','delete')->name('delete')->middleware('auth');
 });
 
 Route::middleware('auth')->group(function () {
