@@ -17,10 +17,42 @@
 
 
                     @endif
-
+                    {{-- Patient --}}
                     <div class="col-md-5 col-sm-3  tile">
                         <span>Patient</span>
                         <h2>{{ $CountPatient }}</h2>
+                        <span class="sparkline_one" style="height: 160px;">
+                            <canvas width="200" height="60"
+                                style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                        </span>
+                    </div>
+
+                    {{-- Appointment --}}
+
+                    <div class="col-md-5 col-sm-3  tile">
+                        <span>Appointment</span>
+                        <h2>{{ $countAppointments }}</h2>
+                        <span class="sparkline_one" style="height: 160px;">
+                            <canvas width="200" height="60"
+                                style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                        </span>
+                    </div>
+
+                    {{-- Messages --}}
+                    <div class="col-md-5 col-sm-3  tile">
+                        <span>Messages</span>
+                        <h2>{{ $countMessages }}</h2>
+                        <span class="sparkline_one" style="height: 160px;">
+                            <canvas width="200" height="60"
+                                style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                        </span>
+                    </div>
+
+                    {{-- results --}}
+
+                    <div class="col-md-5 col-sm-3  tile">
+                        <span>Results</span>
+                        <h2>{{ $countResults }}</h2>
                         <span class="sparkline_one" style="height: 160px;">
                             <canvas width="200" height="60"
                                 style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>

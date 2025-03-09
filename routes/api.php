@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ResultModelController;
@@ -18,4 +19,8 @@ Route::get('/appointment/{id}', [AppointmentController::class, 'view'])->name('a
 Route::get('/viewResult/{id}',[ResultModelController::class,'viewResult'])->name('viewResult');
 Route::get('/viewMessage/{id}',[MessageController::class,'viewMessage'])->name('viewMessage');
 Route::post('/storeMessageApi',[MessageController::class,'storeMessageApi'])->name('storeMessageApi');
+
+Route::get('/countAllDataApi',[DashboardController::class,'countAllDataApi'])->name('countAllDataApi');
+
+Route::get('/getMyDashboardDataApi/{id}',[DashboardController::class,'getMyDashboardDataApi'])->name('getMyDashboardDataApi');
 
