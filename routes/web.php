@@ -35,6 +35,10 @@ Route::controller(UserController::class)->group(function(){
 Route::controller(PatientController::class)->group(function(){
     Route::get('admin/patient','index')->name('patient')->middleware('auth');
     Route::post('admin/storePatient','store')->name('storePatient')->middleware(['auth']);
+    //edit
+    Route::get('admin/editPatient/{id}','edit')->name('editPatient')->middleware('auth');
+    Route::put('admin/patients/{id}', 'update')->name('updatePatient')->middleware('auth');
+
 });
 
 Route::controller(ResultModelController::class)->group(function(){

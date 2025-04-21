@@ -32,6 +32,32 @@ class PatientController extends Controller
         return back()->with('Patient is now registred ');
     }
 
+    // edit
+    public function edit($id)
+    {
+        $titles = 'edit patients';
+        $editPatient = Patient::findOrFail($id);
+        return view('admin.editPatient', compact('titles','editPatient'));
+    }
+
+
+    // update
+    public function update(Request $request, $id){
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'phone' => ['required', 'string','min:10'],
+            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $Patient = Patient::find($id);
+        $Patient->names = $request->name;
+        $Patient->phone = $request->phone;
+        // $Patient->password = Hash::make($request->password);
+        $Patient->save();
+
+        return back()->with('Patient is now updated');
+    }
+
     // login api
     public function login(Request $request){
         // Validate request data
